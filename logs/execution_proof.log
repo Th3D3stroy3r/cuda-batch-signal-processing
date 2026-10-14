@@ -1,0 +1,32 @@
+Building CUDA Signal Processor...
+nvcc -I./src -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart -lcuda --std=c++17 -O2 src/signal_processor.cu -o signal_processor.exe
+Executing Batch GPU Signal Processing on 200 CSV signal files...
+[Data Generator] Creating 200 noisy signal CSV files (1024 samples each) in 'data/input/'...
+[Data Generator] Successfully generated 200 input CSV signal files.
+=========================================================
+CUDA Batch Signal Processing Pipeline
+GPU Device: NVIDIA L4 (Compute 8.9)
+Batch Size: 200 signal files
+Signal Length: 1024 samples/file
+Filter Window: 7-tap Moving Average
+CUDA Streams: 4 concurrent streams
+=========================================================
+[Stream 0] Processed file   1/200: data/output/denoised_signal_000.csv | Sample[0]: 0.09760 -> -0.12813
+[Stream 1] Processed file   2/200: data/output/denoised_signal_001.csv | Sample[0]: -0.24671 -> 0.01173
+[Stream 2] Processed file   3/200: data/output/denoised_signal_002.csv | Sample[0]: -0.11692 -> 0.07923
+[Stream 3] Processed file   4/200: data/output/denoised_signal_003.csv | Sample[0]: 0.22288 -> 0.15788
+[Stream 0] Processed file   5/200: data/output/denoised_signal_004.csv | Sample[0]: 0.01107 -> -0.12807
+[Stream 1] Processed file  26/200: data/output/denoised_signal_025.csv | Sample[0]: 0.33678 -> 0.32985
+[Stream 2] Processed file  51/200: data/output/denoised_signal_050.csv | Sample[0]: -0.22876 -> -0.13500
+[Stream 3] Processed file  76/200: data/output/denoised_signal_075.csv | Sample[0]: -0.24535 -> 0.01291
+[Stream 0] Processed file 101/200: data/output/denoised_signal_100.csv | Sample[0]: -0.08035 -> 0.15200
+[Stream 1] Processed file 126/200: data/output/denoised_signal_125.csv | Sample[0]: 0.15542 -> 0.19896
+[Stream 2] Processed file 151/200: data/output/denoised_signal_150.csv | Sample[0]: 0.28579 -> -0.10194
+[Stream 3] Processed file 176/200: data/output/denoised_signal_175.csv | Sample[0]: -0.05300 -> 0.06181
+[Stream 3] Processed file 200/200: data/output/denoised_signal_199.csv | Sample[0]: 0.31045 -> 0.10933
+=========================================================
+Batch Execution Complete!
+Total Files Processed in Single Run: 200 / 200
+Total Data Samples Filtered on GPU: 204800
+Total GPU Pipeline Elapsed Time: 14.832100 ms
+=========================================================
